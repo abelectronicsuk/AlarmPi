@@ -168,18 +168,4 @@ with i2c.I2CMaster(1) as bus:
 	setAlarm(0, 23, 17, 3)
 
 	
-	while True:
-		
-		
-		print(getDate())
-		print(getTime())
-		print(readAlarm() )
-		if (readAlarm() == 66):
-			print ("not active")
-		if (readAlarm() == 10):
-			print ("Active")
-			clearAlarm()
-			resetAlarm()
-		if (readAlarm() == 2):
-			print ("Reset")
-		time.sleep(1)	
+	
