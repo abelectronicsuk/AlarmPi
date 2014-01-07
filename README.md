@@ -7,7 +7,9 @@ Demo files for Alarm Pi board from AB Electronics UK
 run the following commands to setup the module
 
 modprobe i2c-dev
+
 modprobe rtc-pcf8563
+
 echo pcf8563 0x51 > /sys/class/i2c-adapter/i2c-0/new_device
 
 
