@@ -46,4 +46,18 @@ To set the Alarm Pi with a custom time:
 
 hwclock --set --date="2012-12-25 06:00:12"  --utc
 
+To create the Alarm Pi device creation at boot edit /etc/rc.local by running
+
+    sudo nano /etc/rc.local
+
+and add:
+
+    echo pcf8563 0x51 > /sys/class/i2c-adapter/i2c-0/new_device (for v1 raspberry pi)
+    echo pcf8563 0x51 > /sys/class/i2c-adapter/i2c-1/new_device (v2 raspberry pi)
+    sudo hwclock -s (both versions)
+
+before exit 0
+
+Save your changes and then reboot the Raspberry Pi, the Alarm Pi board will then be detected when the Pi boots and set the time from the clock module.
+
 Further instructions for using the PCF8563 Real Time Clock with C code samples are available on http://www.susa.net/wordpress/2012/06/raspberry-pi-pcf8563-real-time-clock-rtc/
