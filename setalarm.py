@@ -425,7 +425,7 @@ with i2c.I2CMaster(1) as bus:
 		day, day2 = bus.transaction(	i2c.writing_bytes(rtc_address1, 0x0B),
 						i2c.reading(rtc_address1,2))[0]
 
-		timeday1 = ((day >> 4) & 0x05)
+		timeday1 = ((day >> 4) & 0x03)
 		timeday2 = (day & 0x0F)
 
 		alminute        = int(str(timeminute1)+str(timeminute2))
